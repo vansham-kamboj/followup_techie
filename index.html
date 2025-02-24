@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Reminder System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h2>Client Reminder System</h2>
+
+    <form id="clientForm">
+        <input type="text" id="name" placeholder="Client Name" required>
+        <input type="text" id="product" placeholder="Product Interested In" required>
+        <input type="text" id="inquiry" placeholder="Inquiry Details" required>
+        <input type="number" id="amount" placeholder="Amount (₹)" required>
+        <input type="text" id="location" placeholder="Location" required>
+        <button type="submit">Add Client</button>
+    </form>
+
+    <button id="showClientsBtn" onclick="toggleClientList()">Show Due Clients</button>
+
+    <div id="clientList">
+        <h3>Due Clients:</h3>
+        <ul id="reminderList"></ul>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
