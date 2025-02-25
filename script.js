@@ -85,7 +85,7 @@ function showDueClients() {
         li.innerHTML = `
             <strong>${client.name}</strong> - ${client.product}<br>
             📌 ${client.inquiry} | 📞 ${client.contact}<br>
-            💰 ₹${client.amount} | 📍 ${client.location} 
+            💰 ₹${client.amount} | 📍 ${client.location} <br> | 
             <button class="delete-btn" onclick="deleteClient(${index})">-</button>`;
         reminderList.appendChild(li);
     });
