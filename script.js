@@ -6,8 +6,9 @@ document.getElementById("clientForm").addEventListener("submit", function(event)
     let inquiry = document.getElementById("inquiry").value.trim();
     let amount = document.getElementById("amount").value.trim();
     let location = document.getElementById("location").value.trim();
+    let contact = document.getElementById("contact").value.trim(); // New Contact Number Field
 
-    if (!name || !product || !inquiry || !amount || !location) {
+    if (!name || !product || !inquiry || !amount || !location || !contact) {
         alert("Please fill in all fields!");
         return;
     }
@@ -20,6 +21,7 @@ document.getElementById("clientForm").addEventListener("submit", function(event)
         inquiry: inquiry,
         amount: amount,
         location: location,
+        contact: contact, // Save contact number
         entryDate: new Date().getTime() // Save timestamp
     });
 
@@ -66,7 +68,7 @@ function showDueClients() {
     let testingMode = 10000; // 10 seconds for testing
 
     let dueClients = clients.filter(client => 
-        client.name && client.product && client.inquiry && client.amount && client.location &&
+        client.name && client.product && client.inquiry && client.amount && client.location && client.contact &&
         client.entryDate && (now - client.entryDate >= testingMode)
     );
 
@@ -82,13 +84,12 @@ function showDueClients() {
         let li = document.createElement("li");
         li.innerHTML = `
             <strong>${client.name}</strong> - ${client.product}<br>
-            📌 ${client.inquiry}<br>
+            📌 ${client.inquiry} | 📞 ${client.contact}<br>
             💰 ₹${client.amount} | 📍 ${client.location} 
             <button class="delete-btn" onclick="deleteClient(${index})">-</button>`;
         reminderList.appendChild(li);
     });
 }
-
 
 // Function to delete a client
 function deleteClient(index) {
@@ -97,7 +98,7 @@ function deleteClient(index) {
     let testingMode = 10000; // 10 seconds for testing
 
     let dueClients = clients.filter(client => 
-        client.name && client.product && client.inquiry && client.amount && client.location &&
+        client.name && client.product && client.inquiry && client.amount && client.location && client.contact &&
         client.entryDate && (now - client.entryDate >= testingMode)
     );
 
